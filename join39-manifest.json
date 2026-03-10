@@ -11,7 +11,7 @@
   },
   "functionDefinition": {
     "name": "skill-price",
-    "description": "Estimate a fair market price for a Claude Code skill file. Factors in token count (base cost), install count (demand), active users (retention), star rating (quality), and category. Returns suggested price tier (Free → $19.99/mo), cost per use, monthly cost, and per-signal multipliers. Call when the user wants to price or value a skill.md file.",
+    "description": "Estimate a fair market price for a skill.md file. Factors in token count (base cost), install count (demand), active users (retention), star rating (quality), and category. Returns suggested price tier (Free → $19.99/mo), cost per use, monthly cost, and per-signal multipliers. Call when the user wants to price or value a skill.md file.",
     "parameters": {
       "type": "object",
       "properties": {
