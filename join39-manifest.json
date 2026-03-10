@@ -1,0 +1,52 @@
+{
+  "name": "skill-price",
+  "displayName": "Skill Price Estimator",
+  "description": "Estimates a fair market price for a Claude Code skill (.md file) based on token usage, install count, active users, rating, and category. Returns token count, per-use cost, monthly cost projection, individual signal multipliers, and a suggested subscription price tier. Call this when a user asks how much to charge for a skill, wants to price a prompt file, or needs to understand the token cost of a Claude skill.",
+  "version": "1.0.0",
+  "category": "productivity",
+  "apiEndpoint": "https://your-deployment-url.com/api/skill-price",
+  "httpMethod": "POST",
+  "auth": {
+    "type": "none"
+  },
+  "functionDefinition": {
+    "name": "skill-price",
+    "description": "Estimate a fair market price for a Claude Code skill file. Factors in token count (base cost), install count (demand), active users (retention), star rating (quality), and category. Returns suggested price tier (Free → $19.99/mo), cost per use, monthly cost, and per-signal multipliers. Call when the user wants to price or value a skill.md file.",
+    "parameters": {
+      "type": "object",
+      "properties": {
+        "content": {
+          "type": "string",
+          "description": "Full text content of the skill.md file to analyze"
+        },
+        "installs": {
+          "type": "number",
+          "description": "Total number of installs the skill has received. Use 0 if unknown or unpublished."
+        },
+        "active_30d": {
+          "type": "number",
+          "description": "Number of users who used the skill in the last 30 days. Use 0 if unknown."
+        },
+        "rating": {
+          "type": "number",
+          "description": "Average star rating (1.0–5.0). Use 3.0 if unknown."
+        },
+        "category": {
+          "type": "string",
+          "enum": ["productivity", "utilities", "data", "finance", "social", "fun", "other"],
+          "description": "Skill category. Affects price multiplier — productivity and finance command higher prices."
+        },
+        "model": {
+          "type": "string",
+          "enum": ["claude-haiku-4-5", "claude-sonnet-4-6", "claude-opus-4-6", "gpt-4o-mini", "gpt-4o"],
+          "description": "Model the skill runs on. Affects per-token cost. Defaults to claude-sonnet-4-6."
+        },
+        "uses_per_month": {
+          "type": "number",
+          "description": "Estimated monthly invocations for cost projection. Defaults to 1000."
+        }
+      },
+      "required": ["content"]
+    }
+  }
+}
