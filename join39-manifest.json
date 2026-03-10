@@ -1,7 +1,7 @@
 {
   "name": "skill-price",
   "displayName": "Skill Price Estimator",
-  "description": "Estimates a fair market price for a Claude Code skill (.md file) based on token usage, install count, active users, rating, and category. Returns token count, per-use cost, monthly cost projection, individual signal multipliers, and a suggested subscription price tier. Call this when a user asks how much to charge for a skill, wants to price a prompt file, or needs to understand the token cost of a Claude skill.",
+  "description": "Estimates a fair market price for a skill.md file based on token usage, install count, active users, rating, and category. Returns token count, per-use cost, monthly cost projection, individual signal multipliers, and a suggested subscription price tier.",
   "version": "1.0.0",
   "category": "productivity",
   "apiEndpoint": "https://skill-price-production.up.railway.app/api/skill-price",
